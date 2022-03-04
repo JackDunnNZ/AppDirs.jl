@@ -118,12 +118,13 @@ end
         "XDG_CONFIG_DIRS" => "/usr/local/config:/usr/config",
     ) do
       paths = AppDirs.AppDir("Julia", multipath=true)
-      @test paths.site_data == ["/usr/local/share", "/usr/share"]
-      @test paths.site_config == ["/usr/local/config", "/usr/config"]
+      @test paths.site_data == ["/usr/local/share/Julia", "/usr/share/Julia"]
+      @test paths.site_config ==
+            ["/usr/local/config/Julia", "/usr/config/Julia"]
 
       paths = AppDirs.AppDir("Julia", multipath=false)
-      @test paths.site_data == "/usr/local/share"
-      @test paths.site_config == "/usr/local/config"
+      @test paths.site_data == "/usr/local/share/Julia"
+      @test paths.site_config == "/usr/local/config/Julia"
     end
   end
 end

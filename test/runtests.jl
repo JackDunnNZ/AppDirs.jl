@@ -49,41 +49,43 @@ using Test
       @test paths.log == expanduser("~/.cache/J1/V1/log")
     end
   elseif Sys.iswindows()
+    home = ENV["USERPROFILE"]
+
     paths = AppDirs.AppDir("J1", "J2")
-    @test paths.data == expanduser("~/.local/share/Julia")
-    @test paths.site_data == "/usr/local/share/Julia"
-    @test paths.config == expanduser("~/.config/Julia")
-    @test paths.site_config == "/etc/xdg/Julia"
-    @test paths.cache == expanduser("~/.cache/Julia")
-    @test paths.state == expanduser("~/.local/state/Julia")
-    @test paths.log == expanduser("~/.cache/Julia/log")
+    @test paths.data == "$home\\AppData\\Local\\J2\\J1"
+    @test paths.site_data == "C:\\ProgramData\\J2\\J1"
+    @test paths.config == "$HOME\\AppData\\Local\\J2\\J1"
+    @test paths.site_config == "C:\\ProgramData\\J2\\J1"
+    @test paths.cache == "$home\\AppData\\Local\\J2\\J1\\Cache"
+    @test paths.state == "$home\\AppData\\Local\\J2\\J1"
+    @test paths.log == "$home\\AppData\\Local\\J2\\J1\\Logs"
 
     paths = AppDirs.AppDir("J1", "J2", version="V1")
-    @test paths.data == expanduser("~/.local/share/Julia")
-    @test paths.site_data == "/usr/local/share/Julia"
-    @test paths.config == expanduser("~/.config/Julia")
-    @test paths.site_config == "/etc/xdg/Julia"
-    @test paths.cache == expanduser("~/.cache/Julia")
-    @test paths.state == expanduser("~/.local/state/Julia")
-    @test paths.log == expanduser("~/.cache/Julia/log")
+    @test paths.data == "$home\\AppData\\Local\\J2\\J1\\V1"
+    @test paths.site_data == "C:\\ProgramData\\J2\\J1\\V1"
+    @test paths.config == "$HOME\\AppData\\Local\\J2\\J1\\V1"
+    @test paths.site_config == "C:\\ProgramData\\J2\\J1\\V1"
+    @test paths.cache == "$home\\AppData\\Local\\J2\\J1\\V1\\Cache"
+    @test paths.state == "$home\\AppData\\Local\\J2\\J1\\V1"
+    @test paths.log == "$home\\AppData\\Local\\J2\\J1\\V1\\Logs"
 
     paths = AppDirs.AppDir("J1", "J2", roaming=true)
-    @test paths.data == expanduser("~/.local/share/Julia")
-    @test paths.site_data == "/usr/local/share/Julia"
-    @test paths.config == expanduser("~/.config/Julia")
-    @test paths.site_config == "/etc/xdg/Julia"
-    @test paths.cache == expanduser("~/.cache/Julia")
-    @test paths.state == expanduser("~/.local/state/Julia")
-    @test paths.log == expanduser("~/.cache/Julia/log")
+    @test paths.data == "$home\\AppData\\Roaming\\J2\\J1"
+    @test paths.site_data == "C:\\ProgramData\\J2\\J1"
+    @test paths.config == "$HOME\\AppData\\Roaming\\J2\\J1"
+    @test paths.site_config == "C:\\ProgramData\\J2\\J1"
+    @test paths.cache == "$home\\AppData\\Roaming\\J2\\J1\\Cache"
+    @test paths.state == "$home\\AppData\\Roaming\\J2\\J1"
+    @test paths.log == "$home\\AppData\\Roaming\\J2\\J1\\Logs"
 
     paths = AppDirs.AppDir("J1", "J2", roaming=true, version="V1")
-    @test paths.data == expanduser("~/.local/share/Julia")
-    @test paths.site_data == "/usr/local/share/Julia"
-    @test paths.config == expanduser("~/.config/Julia")
-    @test paths.site_config == "/etc/xdg/Julia"
-    @test paths.cache == expanduser("~/.cache/Julia")
-    @test paths.state == expanduser("~/.local/state/Julia")
-    @test paths.log == expanduser("~/.cache/Julia/log")
+    @test paths.data == "$home\\AppData\\Roaming\\J2\\J1\\V1"
+    @test paths.site_data == "C:\\ProgramData\\J2\\J1\\V1"
+    @test paths.config == "$HOME\\AppData\\Roaming\\J2\\J1\\V1"
+    @test paths.site_config == "C:\\ProgramData\\J2\\J1\\V1"
+    @test paths.cache == "$home\\AppData\\Roaming\\J2\\J1\\V1\\Cache"
+    @test paths.state == "$home\\AppData\\Roaming\\J2\\J1\\V1"
+    @test paths.log == "$home\\AppData\\Roaming\\J2\\J1\\V1\\Logs"
   end
 end
 

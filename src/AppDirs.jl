@@ -132,7 +132,7 @@ function site_data_dir(appname=nothing, appauthor=nothing; version=nothing,
   else
     # XDG default for $XDG_DATA_DIRS
     # only first, if multipath is False
-    pathsep = Base.FileSystem.path_separator
+    pathsep = Base.Filesystem.path_separator
     pathlistsep = Sys.iswindows() ? ';' : ':'
     path = get(ENV, "XDG_DATA_DIRS",
                     join(["/usr/local/share", "/usr/share"], pathlistsep))
@@ -268,7 +268,7 @@ function site_config_dir(appname=nothing, appauthor=nothing; version=nothing,
   else
     # XDG default for $XDG_CONFIG_DIRS
     # only first, if multipath is False
-    pathsep = Base.FileSystem.path_separator
+    pathsep = Base.Filesystem.path_separator
     pathlistsep = Sys.iswindows() ? ';' : ':'
     path = get(ENV, "XDG_CONFIG_DIRS", "/etc/xdg")
     pathlist = [expanduser(rstrip(x, pathsep))

@@ -62,7 +62,7 @@ julia> appname = "SuperApp"
 julia> appauthor = "Acme"
 
 julia> user_data_dir(appname, appauthor)
-"/Users/jack/Library/Application Support/SuperApp"
+"/Users/username/Library/Application Support/SuperApp"
 
 julia> site_data_dir(appname, appauthor)
 #> [1] "/Library/Application Support/SuperApp"
@@ -74,11 +74,11 @@ julia> site_config_dir(appname, appauthor)
 "/Library/Preferences/SuperApp"
 
 julia> user_cache_dir(appname, appauthor)
-"/Users/jack/Library/Caches/SuperApp"
+"/Users/username/Library/Caches/SuperApp"
 
 julia> user_state_dir(appname, appauthor)
-"/Users/jack/Library/Application Support/SuperApp"
+"/Users/username/Library/Application Support/SuperApp"
 
 julia> user_log_dir(appname, appauthor)
-"/Users/jack/Library/Logs/SuperApp"
+"/Users/username/Library/Logs/SuperApp"
 ```

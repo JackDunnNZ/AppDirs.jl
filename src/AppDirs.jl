@@ -495,13 +495,13 @@ struct AppDir
   function AppDir(appname=nothing, appauthor=nothing; version=nothing,
                   roaming::Bool=false, multipath::Bool=false)
     new(
-      user_data_dir(appname, appauthor, version=version, roaming=roaming),
-      site_data_dir(appname, appauthor, version=version, multipath=multipath),
-      user_config_dir(appname, appauthor, version=version, roaming=roaming),
-      site_config_dir(appname, appauthor, version=version, multipath=multipath),
-      user_cache_dir(appname, appauthor, version=version),
-      user_state_dir(appname, appauthor, version=version),
-      user_log_dir(appname, appauthor, version=version),
+        user_data_dir(appname, appauthor; version, roaming),
+        site_data_dir(appname, appauthor; version),
+        user_config_dir(appname, appauthor; version, roaming),
+        site_config_dir(appname, appauthor; version),
+        user_cache_dir(appname, appauthor; version),
+        user_state_dir(appname, appauthor; version, roaming),
+        user_log_dir(appname, appauthor; version),
     )
   end
 end

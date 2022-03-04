@@ -54,7 +54,7 @@ using Test
     paths = AppDirs.AppDir("J1", "J2")
     @test paths.data == "$home\\AppData\\Local\\J2\\J1"
     @test paths.site_data == "C:\\ProgramData\\J2\\J1"
-    @test paths.config == "$HOME\\AppData\\Local\\J2\\J1"
+    @test paths.config == "$home\\AppData\\Local\\J2\\J1"
     @test paths.site_config == "C:\\ProgramData\\J2\\J1"
     @test paths.cache == "$home\\AppData\\Local\\J2\\J1\\Cache"
     @test paths.state == "$home\\AppData\\Local\\J2\\J1"
@@ -63,7 +63,7 @@ using Test
     paths = AppDirs.AppDir("J1", "J2", version="V1")
     @test paths.data == "$home\\AppData\\Local\\J2\\J1\\V1"
     @test paths.site_data == "C:\\ProgramData\\J2\\J1\\V1"
-    @test paths.config == "$HOME\\AppData\\Local\\J2\\J1\\V1"
+    @test paths.config == "$home\\AppData\\Local\\J2\\J1\\V1"
     @test paths.site_config == "C:\\ProgramData\\J2\\J1\\V1"
     @test paths.cache == "$home\\AppData\\Local\\J2\\J1\\V1\\Cache"
     @test paths.state == "$home\\AppData\\Local\\J2\\J1\\V1"
@@ -72,20 +72,20 @@ using Test
     paths = AppDirs.AppDir("J1", "J2", roaming=true)
     @test paths.data == "$home\\AppData\\Roaming\\J2\\J1"
     @test paths.site_data == "C:\\ProgramData\\J2\\J1"
-    @test paths.config == "$HOME\\AppData\\Roaming\\J2\\J1"
+    @test paths.config == "$home\\AppData\\Roaming\\J2\\J1"
     @test paths.site_config == "C:\\ProgramData\\J2\\J1"
-    @test paths.cache == "$home\\AppData\\Roaming\\J2\\J1\\Cache"
+    @test paths.cache == "$home\\AppData\\Local\\J2\\J1\\Cache"
     @test paths.state == "$home\\AppData\\Roaming\\J2\\J1"
-    @test paths.log == "$home\\AppData\\Roaming\\J2\\J1\\Logs"
+    @test paths.log == "$home\\AppData\\Local\\J2\\J1\\Logs"
 
     paths = AppDirs.AppDir("J1", "J2", roaming=true, version="V1")
     @test paths.data == "$home\\AppData\\Roaming\\J2\\J1\\V1"
     @test paths.site_data == "C:\\ProgramData\\J2\\J1\\V1"
-    @test paths.config == "$HOME\\AppData\\Roaming\\J2\\J1\\V1"
+    @test paths.config == "$home\\AppData\\Roaming\\J2\\J1\\V1"
     @test paths.site_config == "C:\\ProgramData\\J2\\J1\\V1"
-    @test paths.cache == "$home\\AppData\\Roaming\\J2\\J1\\V1\\Cache"
+    @test paths.cache == "$home\\AppData\\Local\\J2\\J1\\V1\\Cache"
     @test paths.state == "$home\\AppData\\Roaming\\J2\\J1\\V1"
-    @test paths.log == "$home\\AppData\\Roaming\\J2\\J1\\V1\\Logs"
+    @test paths.log == "$home\\AppData\\Local\\J2\\J1\\V1\\Logs"
   end
 end
 

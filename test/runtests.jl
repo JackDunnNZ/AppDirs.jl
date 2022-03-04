@@ -23,12 +23,12 @@ using Test
 
   elseif Sys.islinux()
     withenv(
-        XDG_DATA_HOME=nothing,
-        XDG_DATA_DIRS=nothing,
-        XDG_CONFIG_HOME=nothing,
-        XDG_CONFIG_DIRS=nothing,
-        XDG_CACHE_HOME=nothing,
-        XDG_STATE_HOME=nothing,
+        "XDG_DATA_HOME" => nothing,
+        "XDG_DATA_DIRS" => nothing,
+        "XDG_CONFIG_HOME" => nothing,
+        "XDG_CONFIG_DIRS" => nothing,
+        "XDG_CACHE_HOME" => nothing,
+        "XDG_STATE_HOME" => nothing,
     ) do
       paths = AppDirs.AppDir("J1", "J2")
       @test paths.data == expanduser("~/.local/share/J1")
@@ -90,12 +90,12 @@ end
 @testset "can override with env vars" begin
   if Sys.islinux()
     withenv(
-        XDG_DATA_HOME="A",
-        XDG_DATA_DIRS="B",
-        XDG_CONFIG_HOME="C",
-        XDG_CONFIG_DIRS="D",
-        XDG_CACHE_HOME="E",
-        XDG_STATE_HOME="F",
+        "XDG_DATA_HOME" => "A",
+        "XDG_DATA_DIRS" => "B",
+        "XDG_CONFIG_HOME" => "C",
+        "XDG_CONFIG_DIRS" => "D",
+        "XDG_CACHE_HOME" => "E",
+        "XDG_STATE_HOME" => "F",
     ) do
       paths = AppDirs.AppDir("Julia")
       @test paths.data == "A/Julia"
@@ -112,8 +112,8 @@ end
 @testset "multipath on linux" begin
   if Sys.islinux()
     withenv(
-        XDG_DATA_DIRS="/usr/local/share:/usr/share",
-        XDG_CONFIG_DIRS="/usr/local/config:/usr/config",
+        "XDG_DATA_DIRS" => "/usr/local/share:/usr/share",
+        "XDG_CONFIG_DIRS" => "/usr/local/config:/usr/config",
     ) do
       paths = AppDirs.AppDir("Julia", multipath=true)
       @test paths.site_data == ["/usr/local/share", "/usr/share"]

@@ -500,9 +500,9 @@ struct AppDir
                   roaming::Bool=false, multipath::Bool=false)
     new(
         user_data_dir(appname, appauthor; version, roaming),
-        site_data_dir(appname, appauthor; version),
+        site_data_dir(appname, appauthor; version, multipath),
         user_config_dir(appname, appauthor; version, roaming),
-        site_config_dir(appname, appauthor; version),
+        site_config_dir(appname, appauthor; version, multipath),
         user_cache_dir(appname, appauthor; version),
         user_state_dir(appname, appauthor; version, roaming),
         user_log_dir(appname, appauthor; version),

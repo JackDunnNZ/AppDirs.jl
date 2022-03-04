@@ -203,7 +203,7 @@ function user_config_dir(appname=nothing, appauthor=nothing; version=nothing,
     end
   else
     path = get(ENV, "XDG_CONFIG_HOME", expanduser("~/.config"))
-    if appname
+    if !isnothing(appname)
       path = joinpath(path, appname)
     end
   end

@@ -340,10 +340,14 @@ function user_cache_dir(appname=nothing, appauthor=nothing; version=nothing,
       else
         path = joinpath(path, appname)
       end
+      if !isnothing(version)
+        path = joinpath(path, version)
+      end
       if opinion
         path = joinpath(path, "Cache")
       end
     end
+    return path
   elseif Sys.isapple()
     path = expanduser("~/Library/Caches")
     if !isnothing(appname)

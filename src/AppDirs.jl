@@ -136,7 +136,7 @@ function site_data_dir(appname=nothing, appauthor=nothing; version=nothing,
     pathlistsep = Sys.iswindows() ? ';' : ':'
     path = get(ENV, "XDG_DATA_DIRS",
                     join(["/usr/local/share", "/usr/share"], pathlistsep))
-    pathlist = [expanduser(rstrip(x, pathsep))
+    pathlist = [expanduser(rstrip(x, pathsep[1]))
                 for x in split(path, pathlistsep)]
     if !isnothing(appname)
       if !isnothing(version)
@@ -271,7 +271,7 @@ function site_config_dir(appname=nothing, appauthor=nothing; version=nothing,
     pathsep = Base.Filesystem.path_separator
     pathlistsep = Sys.iswindows() ? ';' : ':'
     path = get(ENV, "XDG_CONFIG_DIRS", "/etc/xdg")
-    pathlist = [expanduser(rstrip(x, pathsep))
+    pathlist = [expanduser(rstrip(x, pathsep[1]))
                 for x in split(path, pathlistsep)]
     if !isnothing(appname)
       if !isnothing(version)

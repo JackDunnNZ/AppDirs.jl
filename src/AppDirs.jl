@@ -148,7 +148,7 @@ function site_data_dir(appname=nothing, appauthor=nothing; version=nothing,
     if multipath
       path = join(pathlist, pathlistsep)
     else
-      path = pathlist[0]
+      path = pathlist[1]
     end
     return path
   end

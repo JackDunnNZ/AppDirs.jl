@@ -86,6 +86,24 @@ using Test
     @test paths.cache == "$home\\AppData\\Local\\J2\\J1\\V1\\Cache"
     @test paths.state == "$home\\AppData\\Roaming\\J2\\J1\\V1"
     @test paths.log == "$home\\AppData\\Local\\J2\\J1\\V1\\Logs"
+
+    paths = AppDirs.AppDir("J1")
+    @test paths.data == "$home\\AppData\\Local\\J1\\J1"
+    @test paths.site_data == "C:\\ProgramData\\J1\\J1"
+    @test paths.config == "$home\\AppData\\Local\\J1\\J1"
+    @test paths.site_config == "C:\\ProgramData\\J1\\J1"
+    @test paths.cache == "$home\\AppData\\Local\\J1\\J1\\Cache"
+    @test paths.state == "$home\\AppData\\Local\\J1\\J1"
+    @test paths.log == "$home\\AppData\\Local\\J1\\J1\\Logs"
+
+    paths = AppDirs.AppDir("J1", false)
+    @test paths.data == "$home\\AppData\\Local\\J1"
+    @test paths.site_data == "C:\\ProgramData\\J1"
+    @test paths.config == "$home\\AppData\\Local\\J1"
+    @test paths.site_config == "C:\\ProgramData\\J1"
+    @test paths.cache == "$home\\AppData\\Local\\J1\\Cache"
+    @test paths.state == "$home\\AppData\\Local\\J1"
+    @test paths.log == "$home\\AppData\\Local\\J1\\Logs"
   end
 end
 

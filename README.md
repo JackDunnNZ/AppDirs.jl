@@ -17,13 +17,13 @@ Mac OS X, you should use:
 
     ~/Library/Application Support/<AppName>
 
-If on Windows (at least English Win XP) that should be:
+If on Windows that should be:
 
-    C:\Documents and Settings\<User>\Application Data\Local Settings\<AppAuthor>\<AppName>
+    C:\Users\<username>\AppData\Local\<AppAuthor>\<AppName>
 
 or possibly:
 
-    C:\Documents and Settings\<User>\Application Data\<AppAuthor>\<AppName>
+    C:\Users\<username>\AppData\Roaming\<AppAuthor>\<AppName>
 
 for [roaming
 profiles](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-vista/cc766489(v=ws.10))
@@ -41,8 +41,7 @@ or possibly:
 
 ## Usage
 
-This kind of thing is what AppDirs.jl is for. AppDirs.jl will help you
-choose an appropriate:
+AppDirs.jl will help you choose an appropriate:
 
 -   user data dir (`user_data_dir`)
 -   site data dir (`site_data_dir`)

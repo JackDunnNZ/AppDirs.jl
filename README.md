@@ -65,7 +65,7 @@ julia> user_data_dir(appname, appauthor)
 "/Users/username/Library/Application Support/SuperApp"
 
 julia> site_data_dir(appname, appauthor)
-#> [1] "/Library/Application Support/SuperApp"
+"/Library/Application Support/SuperApp"
 
 julia> user_config_dir(appname, appauthor)
 "/Users/username/Library/Preferences/SuperApp"
